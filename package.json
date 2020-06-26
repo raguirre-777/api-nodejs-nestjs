@@ -46,6 +46,7 @@
     "swagger-ui-express": "^4.1.4",
     "ts-mapper": "^1.2.4",
     "typeorm": "^0.2.25",
+    "dotenv": "^8.2.0",
     "validator": "^13.1.1"
   },
   "devDependencies": {
@@ -67,7 +68,6 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
     "jest": "26.0.1",
-    "notenv": "^2.0.3",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2",
     "ts-jest": "26.1.0",
@@ -86,6 +86,9 @@
     "testRegex": ".spec.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "engines": {
+      "npm": "2.1.x"
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
