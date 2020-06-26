@@ -1,4 +1,4 @@
-<h1>BAGLOG</h1>
+<h1>BACKLOG</h1>
 <li type=”square”>conectar con base de datos en la nube </li>
 <li type=”square”>crear crud hora </li>
 <li type=”square”>crear crud orden pedido </li>
