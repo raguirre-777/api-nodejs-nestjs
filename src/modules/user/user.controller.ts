@@ -21,8 +21,6 @@ export class UserController {
     const user = await this._userService.get(id);
     return user;
   }
-
-
   @Get()
   async getUsers(): Promise<User[]> {
     const users = await this._userService.getAll();

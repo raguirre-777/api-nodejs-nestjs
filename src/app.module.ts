@@ -7,12 +7,23 @@ import { Configuration } from './config/config.keys';
 import { DatabaseModule } from './database/database.module';
 import { UserModule } from './modules/user/user.module';
 import { RoleModule } from './modules/role/role.module';
+import { ProveedorModule } from './modules/proveedor/proveedor.module';
+import { ServicioModule } from './modules/servicio/servicio.module';
+import { ProductoModule } from './modules/producto/producto.module';
 
 
 @Module({
   controllers: [AppController],
   providers: [AppService],
-  imports: [ConfigModule, DatabaseModule, UserModule, RoleModule],
+  imports: [
+    ConfigModule,
+    DatabaseModule,
+    UserModule,
+    RoleModule,
+    ProveedorModule,
+    ProductoModule,
+    ServicioModule,
+  ],
 })
 export class AppModule {
   static port: number | string;
