@@ -3,7 +3,7 @@ import { Reflector } from '@nestjs/core';
 
 @Injectable()
 export class RoleGuard implements CanActivate {
-  constructor(private readonly _reflector: Reflector) {}
+  constructor(private readonly _reflector: Reflector) { }
 
   canActivate(context: ExecutionContext): boolean {
     const roles: string[] = this._reflector.get<string[]>(
