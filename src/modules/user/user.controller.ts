@@ -9,8 +9,11 @@ import {
   ParseIntPipe,
   UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { UserService } from './user.service';
 import { User } from './user.entity';
+import { Roles } from '../role/decorators/role.decorator';
+import { RoleGuard } from '../role/guards/role.guard';
 
 @Controller('users')
 export class UserController {
@@ -21,6 +24,8 @@ export class UserController {
     const user = await this._userService.get(id);
     return user;
   }
+
+  @UseGuards(AuthGuard('jwt'))
   @Get()
   async getUsers(): Promise<User[]> {
     const users = await this._userService.getAll();
