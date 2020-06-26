@@ -1,0 +1,90 @@
+enum status {
+    ACTIVE
+    RECEPCION
+    DELETED
+}
+
+enum rol {
+    PACIENTE
+    EMPLEADO
+}
+
+Table login as lo {
+  login_id int [pk, increment]
+  nombre varchar
+  run varchar
+  password varchar
+  rol rol
+  correo varchar
+  ficha varchar
+  status status
+  created_at timestamp
+  update_at timestamp
+}
+
+
+Table proveedor as prov {
+  proveedor_id int [pk, increment]
+  nombre varchar
+  codigo varchar
+  descripcion varchar
+  status status
+  created_at timestamp
+  update_at timestamp
+}
+
+Table producto as prod {
+  producto_id int [pk, increment]
+  nombre varchar
+  codigo varchar
+  descripcion varchar
+  status status
+  created_at timestamp
+  update_at timestamp
+}
+
+Table servicio as prod {
+  servicio_id int [pk, increment]
+  nombre varchar
+  codigo varchar
+  descripcion varchar
+  status status
+  created_at timestamp
+  update_at timestamp
+}
+
+Table boleta as ho{
+  boleta_id int [pk, increment]
+  hora int [ref: > hora.hora_id, not null]
+  valor_total int
+  codigo varchar
+  descripcion varchar
+  status status
+  created_at timestamp
+  update_at timestamp
+}
+
+Table orden_pedido as op{
+  op_id int [pk, increment]
+  producto int [ref: > producto.producto_id, not null]
+  proveedor int [ref: > proveedor.proveedor_id, not null]
+  codigo varchar
+  descripcion varchar
+  status status
+  created_at timestamp
+  update_at timestamp
+}
+
+Table hora as ho{
+  hora_id int [pk, increment]
+  nombre varchar
+  servicio int [ref: > servicio.servicio_id, not null]
+  hora_compromiso timestamp
+  valor int
+  descripcion varchar
+  status status
+  created_at timestamp
+  update_at timestamp
+}
+
+
