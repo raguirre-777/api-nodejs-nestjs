@@ -10,6 +10,7 @@ import { RoleModule } from './modules/role/role.module';
 import { ProveedorModule } from './modules/proveedor/proveedor.module';
 import { ServicioModule } from './modules/servicio/servicio.module';
 import { ProductoModule } from './modules/producto/producto.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 
 @Module({
@@ -23,6 +24,7 @@ import { ProductoModule } from './modules/producto/producto.module';
     ProveedorModule,
     ProductoModule,
     ServicioModule,
+    AuthModule,
   ],
 })
 export class AppModule {
