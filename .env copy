@@ -1,0 +1,13 @@
+PORT=8000
+HOST=localhost
+USERNAME=postgres
+PASSWORD=postgres
+DATABASE=crudnest
+JWT_SECRET=jsonwebtoken
+
+
+HOST=localhost
+USERNAME=postgres
+PASSWORD=postgres
+DATABASE=crudnest
+
