@@ -33,13 +33,13 @@ export class Hora extends BaseEntity {
   // @JoinColumn({ name: 'user_id' })
   // user: User;
 
-  @Column({ type: 'varchar', length: 200 })
+  @Column({ type: 'varchar', length: 25, nullable: true })
   servicio: string;
 
-  @Column({ type: 'varchar', length: 200 })
+  @Column({ type: 'varchar', length: 25, nullable: true })
   user: string;
 
-  @Column({ type: 'varchar', default: 'ACTIVE', length: 200 })
+  @Column({ type: 'varchar', default: 'ACTIVE', length: 8 })
   status: string;
 
   @CreateDateColumn({ type: 'timestamp', name: 'created_at' })

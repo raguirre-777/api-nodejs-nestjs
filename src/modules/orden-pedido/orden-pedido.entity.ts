@@ -22,10 +22,10 @@ export class OrdenPedido extends BaseEntity {
   @Column({ type: 'numeric', nullable: false })
   valor: number;
 
-  @Column({ type: 'varchar', length: 200 })
+  @Column({ type: 'varchar', length: 25, nullable: false })
   proveedor: string;
 
-  @Column({ type: 'varchar', length: 200 })
+  @Column({ type: 'varchar', length: 25, nullable: false })
   producto: string;
 
   @Column({ type: 'varchar', default: 'ACTIVE', length: 200 })
