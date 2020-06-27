@@ -10,6 +10,7 @@ export const databaseProviders = [
     inject: [ConfigService],
     async useFactory(config: ConfigService) {
       return {
+        connectionString: Configuration.DATABASE_URL,
         ssl: {
           rejectUnauthorized: false
         },
