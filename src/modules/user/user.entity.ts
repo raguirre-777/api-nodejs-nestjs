@@ -28,11 +28,9 @@ export class User extends BaseEntity {
   password: string;
 
   @ManyToMany(type => Role, role => role.users, { eager: true })
-  @JoinTable({ name: 'user_roles' })
   roles: Role[];
 
-  @OneToOne(type => Hora, hora => hora.user, { eager: true })
-  @JoinTable({ name: 'user_hora' })
+  @Column({ type: 'varchar', nullable: true })
   hora: Hora;
 
   @Column({ type: 'varchar', default: 'ACTIVE', length: 8 })
