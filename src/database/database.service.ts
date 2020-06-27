@@ -14,7 +14,7 @@ export const databaseProviders = [
         // ssl: {
         //   rejectUnauthorized: false
         // },
-        ssl: false,
+        ssl: true,
         dialect: "postgres",
         operatorsAliases: false,
         type: 'postgres' as 'postgres',
