@@ -5,7 +5,8 @@ import {
 } from '@nestjs/common';
 import { ProveedorRepository } from './proveedor.repository';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Proveedor } from './proveedor.entity';
+import { ProveedorDto } from './dto/proveedor.dto';
+
 
 @Injectable()
 export class ProveedorService {
@@ -14,12 +15,12 @@ export class ProveedorService {
     private readonly _proveedorRespository: ProveedorRepository,
   ) { }
 
-  async get(id: number): Promise<Proveedor> {
+  async get(id: number): Promise<ProveedorDto> {
     if (!id) {
       throw new BadRequestException('id must be sent');
     }
 
-    const pro: Proveedor = await this._proveedorRespository.findOne(id, {
+    const pro: ProveedorDto = await this._proveedorRespository.findOne(id, {
       where: { status: 'ACTIVE' },
     });
 
@@ -30,20 +31,20 @@ export class ProveedorService {
     return pro;
   }
 
-  async getAll(): Promise<Proveedor[]> {
-    const provs: Proveedor[] = await this._proveedorRespository.find({
+  async getAll(): Promise<ProveedorDto[]> {
+    const provs: ProveedorDto[] = await this._proveedorRespository.find({
       where: { status: 'ACTIVE' },
     });
 
     return provs;
   }
 
-  async create(prov: Proveedor): Promise<Proveedor> {
-    const savedProv: Proveedor = await this._proveedorRespository.save(prov);
+  async create(prov: ProveedorDto): Promise<ProveedorDto> {
+    const savedProv: ProveedorDto = await this._proveedorRespository.save(prov);
     return savedProv;
   }
 
-  async update(id: number, prov: Proveedor): Promise<void> {
+  async update(id: number, prov: ProveedorDto): Promise<void> {
     await this._proveedorRespository.update(id, prov);
   }
 

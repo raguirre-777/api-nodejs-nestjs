@@ -10,39 +10,42 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ProductoService } from './producto.service';
+
+import { ApiTags } from '@nestjs/swagger';
+import { ProductoDto } from './dto/producto.dto';
 import { Producto } from './producto.entity';
 
-
-@Controller('Producto')
+@ApiTags('Mantenedor de Producto')
+@Controller('producto')
 export class ProductoController {
-  constructor(private readonly _ProductoService: ProductoService) { }
+  constructor(private readonly _productoService: ProductoService) { }
 
   @Get(':id')
-  async getProducto(@Param('id', ParseIntPipe) id: number): Promise<Producto> {
-    const Producto = await this._ProductoService.get(id);
-    return Producto;
+  async getProducto(@Param('id', ParseIntPipe) id: number): Promise<ProductoDto> {
+    const producto = await this._productoService.get(id);
+    return producto;
   }
   @Get()
-  async getProductos(): Promise<Producto[]> {
-    const Productos = await this._ProductoService.getAll();
-    return Productos;
+  async getProductos(): Promise<ProductoDto[]> {
+    const productos = await this._productoService.getAll();
+    return productos;
   }
 
   @Post()
-  async createProducto(@Body() Producto: Producto): Promise<Producto> {
-    const createdProducto = await this._ProductoService.create(Producto);
+  async createProducto(@Body() producto: ProductoDto): Promise<ProductoDto> {
+    const createdProducto = await this._productoService.create(producto);
     return createdProducto;
   }
 
   @Patch(':id')
-  async updateProducto(@Param('id', ParseIntPipe) id: number, @Body() Producto: Producto) {
-    const updatedProducto = await this._ProductoService.update(id, Producto);
+  async updateProducto(@Param('id', ParseIntPipe) id: number, @Body() producto: ProductoDto) {
+    const updatedProducto = await this._productoService.update(id, producto);
     return true;
   }
 
   @Delete(':id')
   async deleteProducto(@Param('id', ParseIntPipe) id: number) {
-    await this._ProductoService.delete(id);
+    await this._productoService.delete(id);
     return true;
   }
 

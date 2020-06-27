@@ -11,6 +11,7 @@ import {
   CreateDateColumn,
 } from 'typeorm';
 import { Role } from '../role/role.entity';
+import { Hora } from '../hora/hora.entity';
 
 @Entity('users')
 export class User extends BaseEntity {
@@ -30,6 +31,10 @@ export class User extends BaseEntity {
   @JoinTable({ name: 'user_roles' })
   roles: Role[];
 
+  @OneToOne(type => Hora, hora => hora.user, { eager: true })
+  @JoinTable({ name: 'user_hora' })
+  hora: Hora;
+
   @Column({ type: 'varchar', default: 'ACTIVE', length: 8 })
   status: string;
 
@@ -38,4 +43,5 @@ export class User extends BaseEntity {
 
   @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
   updatedAt: Date;
+  user: any;
 }

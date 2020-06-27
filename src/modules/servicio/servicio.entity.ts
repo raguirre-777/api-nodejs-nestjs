@@ -9,7 +9,9 @@ import {
   ManyToMany,
   UpdateDateColumn,
   CreateDateColumn,
+  OneToMany,
 } from 'typeorm';
+import { Hora } from '../hora/hora.entity';
 
 @Entity('servicio')
 export class Servicio extends BaseEntity {
@@ -24,6 +26,9 @@ export class Servicio extends BaseEntity {
 
   @Column({ type: 'varchar', nullable: false })
   description: string;
+
+  @OneToMany(() => Hora, (hora: Hora) => hora.servicio)
+  horas: Hora[];
 
   @Column({ type: 'varchar', default: 'ACTIVE', length: 8 })
   status: string;

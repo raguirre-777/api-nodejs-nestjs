@@ -6,6 +6,7 @@ import {
 import { ServicioRepository } from './servicio.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Servicio } from './servicio.entity';
+import { ServicioDto } from './dto/servicio.dto';
 
 @Injectable()
 export class ServicioService {
@@ -14,7 +15,7 @@ export class ServicioService {
     private readonly _ServicioRespository: ServicioRepository,
   ) { }
 
-  async get(id: number): Promise<Servicio> {
+  async get(id: number): Promise<ServicioDto> {
     if (!id) {
       throw new BadRequestException('id must be sent');
     }
@@ -30,7 +31,7 @@ export class ServicioService {
     return pro;
   }
 
-  async getAll(): Promise<Servicio[]> {
+  async getAll(): Promise<ServicioDto[]> {
     const provs: Servicio[] = await this._ServicioRespository.find({
       where: { status: 'ACTIVE' },
     });
@@ -38,12 +39,12 @@ export class ServicioService {
     return provs;
   }
 
-  async create(prov: Servicio): Promise<Servicio> {
+  async create(prov: ServicioDto): Promise<ServicioDto> {
     const savedProv: Servicio = await this._ServicioRespository.save(prov);
     return savedProv;
   }
 
-  async update(id: number, prov: Servicio): Promise<void> {
+  async update(id: number, prov: ServicioDto): Promise<void> {
     await this._ServicioRespository.update(id, prov);
   }
 

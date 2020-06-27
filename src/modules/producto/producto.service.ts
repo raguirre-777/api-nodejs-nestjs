@@ -5,21 +5,22 @@ import {
 } from '@nestjs/common';
 import { ProductoRepository } from './producto.repository';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Producto } from './producto.entity';
+import { ProductoDto } from './dto/producto.dto';
+
 
 @Injectable()
 export class ProductoService {
   constructor(
     @InjectRepository(ProductoRepository)
-    private readonly _ProductoRespository: ProductoRepository,
+    private readonly _productoRespository: ProductoRepository,
   ) { }
 
-  async get(id: number): Promise<Producto> {
+  async get(id: number): Promise<ProductoDto> {
     if (!id) {
       throw new BadRequestException('id must be sent');
     }
 
-    const pro: Producto = await this._ProductoRespository.findOne(id, {
+    const pro: ProductoDto = await this._productoRespository.findOne(id, {
       where: { status: 'ACTIVE' },
     });
 
@@ -30,25 +31,25 @@ export class ProductoService {
     return pro;
   }
 
-  async getAll(): Promise<Producto[]> {
-    const provs: Producto[] = await this._ProductoRespository.find({
+  async getAll(): Promise<ProductoDto[]> {
+    const provs: ProductoDto[] = await this._productoRespository.find({
       where: { status: 'ACTIVE' },
     });
 
     return provs;
   }
 
-  async create(prov: Producto): Promise<Producto> {
-    const savedProv: Producto = await this._ProductoRespository.save(prov);
+  async create(prov: ProductoDto): Promise<ProductoDto> {
+    const savedProv: ProductoDto = await this._productoRespository.save(prov);
     return savedProv;
   }
 
-  async update(id: number, prov: Producto): Promise<void> {
-    await this._ProductoRespository.update(id, prov);
+  async update(id: number, prov: ProductoDto): Promise<void> {
+    await this._productoRespository.update(id, prov);
   }
 
   async delete(id: number): Promise<void> {
-    const provExist = await this._ProductoRespository.findOne(id, {
+    const provExist = await this._productoRespository.findOne(id, {
       where: { status: 'ACTIVE' },
     });
 
@@ -56,7 +57,7 @@ export class ProductoService {
       throw new NotFoundException();
     }
 
-    await this._ProductoRespository.update(id, { status: 'INACTIVE' });
+    await this._productoRespository.update(id, { status: 'INACTIVE' });
   }
 
 }

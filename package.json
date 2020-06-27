@@ -34,6 +34,7 @@
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",
+    "dotenv": "^8.2.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-payload": "^1.0.7",
     "passport": "^0.4.1",
@@ -46,7 +47,6 @@
     "swagger-ui-express": "^4.1.4",
     "ts-mapper": "^1.2.4",
     "typeorm": "^0.2.25",
-    "dotenv": "^8.2.0",
     "validator": "^13.1.1"
   },
   "devDependencies": {

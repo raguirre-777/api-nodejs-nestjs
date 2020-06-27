@@ -1,10 +1,13 @@
 {
   "type": "postgres",
-  "username": "postgres",
-  "password": "postgres",
-  "host": "localhost",
+  "username": "hmvtnuarzwjnaw",
+  "password": "6156115253a9f7fc3ea4b25b234a30ae92b997fad6772d1a858e39f7d2f26138",
+  "host": "ec2-3-223-21-106.compute-1.amazonaws.com",
   "port": 5432,
-  "database": "crudnest",
+  "database": "d5acll7eo994ic",
+  "ssl": {
+    "rejectUnauthorized": false
+  },
   "entities": [
     "src/**/**/*.entity{.ts,.js}"
   ],

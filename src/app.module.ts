@@ -9,6 +9,8 @@ import { ProveedorModule } from './modules/proveedor/proveedor.module';
 import { ServicioModule } from './modules/servicio/servicio.module';
 import { ProductoModule } from './modules/producto/producto.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { HoraModule } from './modules/hora/hora.module';
+import { OrdenPedidoModule } from './modules/orden-pedido/orden-pedido.module';
 
 
 @Module({
@@ -21,6 +23,8 @@ import { AuthModule } from './modules/auth/auth.module';
     ProductoModule,
     ServicioModule,
     AuthModule,
+    HoraModule,
+    OrdenPedidoModule,
   ],
 })
 export class AppModule {

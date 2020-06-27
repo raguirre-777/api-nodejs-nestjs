@@ -14,7 +14,10 @@ import { UserService } from './user.service';
 import { User } from './user.entity';
 import { Roles } from '../role/decorators/role.decorator';
 import { RoleGuard } from '../role/guards/role.guard';
+import { ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags('Mantenedor de Usuarios')
 @Controller('users')
 export class UserController {
   constructor(private readonly _userService: UserService) { }
@@ -25,7 +28,7 @@ export class UserController {
     return user;
   }
 
-  @UseGuards(AuthGuard('jwt'))
+  //@UseGuards(AuthGuard('jwt'))
   @Get()
   async getUsers(): Promise<User[]> {
     const users = await this._userService.getAll();
