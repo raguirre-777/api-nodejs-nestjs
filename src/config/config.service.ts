@@ -19,7 +19,7 @@ export class ConfigService {
       this.envConfig = parse(fs.readFileSync(envFilePath));
     } else {
       this.envConfig = {
-        PORT: process.env.PORT,
+        PORT: process.env.PORT || '3000',
       };
     }
   }
