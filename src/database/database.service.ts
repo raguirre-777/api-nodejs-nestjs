@@ -10,7 +10,7 @@ export const databaseProviders = [
     inject: [ConfigService],
     async useFactory(config: ConfigService) {
       return {
-        connectionString: 'postgresql://postgres:hmvtnuarzwjnaw:6156115253a9f7fc3ea4b25b234a30ae92b997fad6772d1a858e39f7d2f26138@db:5432/d5acll7eo994ic',
+        connectionString: 'postgresql://postgres:hmvtnuarzwjnaw:6156115253a9f7fc3ea4b25b234a30ae92b997fad6772d1a858e39f7d2f26138@ec2-3-223-21-106.compute-1.amazonaws.com:5432/d5acll7eo994ic',
         // ssl: {
         //   rejectUnauthorized: false
         // },
