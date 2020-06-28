@@ -28,6 +28,7 @@ export class User extends BaseEntity {
   password: string;
 
   @ManyToMany(type => Role, role => role.users, { eager: true })
+  @JoinTable({ name: 'user_roles' })
   roles: Role[];
 
   @Column({ type: 'varchar', nullable: true })

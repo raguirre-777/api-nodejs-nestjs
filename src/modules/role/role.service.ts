@@ -2,6 +2,8 @@ import {
   Injectable,
   BadRequestException,
   NotFoundException,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common';
 import { RoleRepository } from './role.repository';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -12,7 +14,7 @@ export class RoleService {
   constructor(
     @InjectRepository(RoleRepository)
     private readonly _roleRepository: RoleRepository,
-  ) {}
+  ) { }
 
   async get(id: number): Promise<Role> {
     if (!id) {
@@ -39,6 +41,24 @@ export class RoleService {
   }
 
   async create(role: Role): Promise<Role> {
+    if (role === undefined) {
+      throw new HttpException(
+        {
+          status: HttpStatus.BAD_REQUEST,
+          error: 'Debe incluir body',
+        },
+        400,
+      );
+    }
+    if (role.name === undefined || role.name === null || role.description === undefined || role.description === null) {
+      throw new HttpException(
+        {
+          status: HttpStatus.BAD_REQUEST,
+          error: 'debe incluir name y description',
+        },
+        400,
+      );
+    }
     const savedRole: Role = await this._roleRepository.save(role);
     return savedRole;
   }
