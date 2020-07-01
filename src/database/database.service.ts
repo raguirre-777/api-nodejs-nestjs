@@ -10,6 +10,7 @@ export const databaseProviders = [
     inject: [ConfigService],
     async useFactory(config: ConfigService) {
       return {
+<<<<<<< HEAD
         //connectionString: 'postgresql://postgres:hmvtnuarzwjnaw:6156115253a9f7fc3ea4b25b234a30ae92b997fad6772d1a858e39f7d2f26138@ec2-3-223-21-106.compute-1.amazonaws.com:5432/d5acll7eo994ic',
         // ssl: {
         //   rejectUnauthorized: false
@@ -17,6 +18,8 @@ export const databaseProviders = [
         ssl: false,
         dialect: "postgres",
         operatorsAliases: false,
+=======
+>>>>>>> 5cd5d19c148bfe2a947ab4c596e6d909524836fb
         type: 'postgres' as 'postgres',
         host: config.get(Configuration.HOST),
         username: config.get(Configuration.USERNAME),
@@ -29,30 +32,3 @@ export const databaseProviders = [
     },
   }),
 ];
-
-
-// module.exports = {
-//   "development": {
-//     "username": process.env.PG_USER,
-//     "password": process.env.PG_PASSWORD,
-//     "database": process.env.PG_DATABASE,
-//     "host": process.env.PG_HOST,
-//     "port": process.env.PG_PORT,
-//     "dialect": "postgres",
-//     "operatorsAliases": false
-//   },
-//   "test": {
-//     "username": process.env.PG_USER,
-//     "password": process.env.PG_PASSWORD,
-//     "database": process.env.PG_DATABASE,
-//     "host": process.env.PG_HOST,
-//     "port": process.env.PG_PORT,
-//     "dialect": "postgres",
-//     "operatorsAliases": false
-//   },
-//   "production": {
-//     "use_env_variable": "DATABASE_URL",
-//     "dialect": "postgres",
-//     "operatorsAliases": false
-//   }
-// }

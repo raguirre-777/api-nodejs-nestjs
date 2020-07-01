@@ -1,11 +1,15 @@
 {
   "type": "postgres",
-  "username": "hmvtnuarzwjnaw",
-  "password": "6156115253a9f7fc3ea4b25b234a30ae92b997fad6772d1a858e39f7d2f26138",
-  "host": "ec2-3-223-21-106.compute-1.amazonaws.com",
+  "username": "postgres",
+  "password": "postgres",
+  "host": "localhost",
   "port": 5432,
+<<<<<<< HEAD
   "database": "d5acll7eo994ic",
   "ssl": false,
+=======
+  "database": "linda_sonrisa_api_nestjs",
+>>>>>>> 5cd5d19c148bfe2a947ab4c596e6d909524836fb
   "dialect": "postgres",
   "operatorsAliases": false,
   "entities": [

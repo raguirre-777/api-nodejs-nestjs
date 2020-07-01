@@ -47,7 +47,7 @@ export class UserService {
 
   async create(user: User): Promise<User> {
     const repo = await getConnection().getRepository(Role);
-    const defaultRole = await repo.findOne({ where: { name: 'GENERAL' } });
+    const defaultRole = await repo.findOne({ where: { name: 'PACIENTE' } });
     user.roles = [defaultRole];
 
     const savedUser: User = await this._userRepository.save(user);

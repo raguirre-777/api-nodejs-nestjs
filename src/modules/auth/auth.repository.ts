@@ -19,7 +19,7 @@ export class AuthRepository extends Repository<User> {
         );
 
         const defaultRole: Role = await roleRepository.findOne({
-            where: { name: RoleType.GENERAL },
+            where: { name: 'PACIENTE' },
         });
 
         user.roles = [defaultRole];
