@@ -4,9 +4,7 @@
   "password": "postgres",
   "host": "localhost",
   "port": 5432,
-  "database": "linda_sonrisa_api_nestjs",
-  "dialect": "postgres",
-  "operatorsAliases": false,
+  "database": "crudnest",
   "entities": [
     "src/**/**/*.entity{.ts,.js}"
   ],
