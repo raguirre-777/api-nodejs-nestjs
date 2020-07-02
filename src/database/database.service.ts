@@ -12,9 +12,9 @@ export const databaseProviders = [
     async useFactory(config: ConfigService) {
       return {
         connectionString: 'postgresql://postgres:tbojodcnnbekks:15e204b56bcc9e4e60b7e97e4c3080455b35f71dd922961a4caeff00196cd35d@ec2-3-208-50-226.compute-1.amazonaws.com:5432/d7blavbuu1scb7',
-        ssl: {
-          rejectUnauthorized: false
-        },
+        // ssl: {
+        //   rejectUnauthorized: false
+        // },
         dialect: "postgres",
         operatorsAliases: false,
         type: 'postgres' as 'postgres',
