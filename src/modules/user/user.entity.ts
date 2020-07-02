@@ -32,7 +32,7 @@ export class User extends BaseEntity {
   roles: Role[];
 
   @Column({ type: 'varchar', nullable: true })
-  hora: Hora;
+  hora: string;
 
   @Column({ type: 'varchar', default: 'ACTIVE', length: 8 })
   status: string;

@@ -1,10 +1,15 @@
 {
+  "connectionString": "postgresql://postgres:tbojodcnnbekks:15e204b56bcc9e4e60b7e97e4c3080455b35f71dd922961a4caeff00196cd35d@ec2-35-153-12-59.compute-1.amazonaws.com:5432/d2d4d7kcvkfvsc",
+  "ssl": {
+    "rejectUnauthorized": false
+  },
   "type": "postgres",
   "username": "tbojodcnnbekks",
   "password": "15e204b56bcc9e4e60b7e97e4c3080455b35f71dd922961a4caeff00196cd35d",
   "host": "ec2-35-153-12-59.compute-1.amazonaws.com",
   "port": 5432,
-  "database": "crudnest",
+  "database": "d2d4d7kcvkfvsc",
+  "dialect": "postgres",
   "entities": [
     "src/**/**/*.entity{.ts,.js}"
   ],
