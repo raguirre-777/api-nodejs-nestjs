@@ -8,7 +8,8 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '../../config/config.module';
-import { Configuration } from '../../config/config.keys';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { Configuration } from '../../config/config.keys';
       inject: [ConfigService],
       useFactory(config: ConfigService) {
         return {
-          secret: config.get(Configuration.JWT_SECRET),
+          secret: config.get(process.env.JWT_SECRET),
           signOptions: {
             expiresIn: 3600,
           },

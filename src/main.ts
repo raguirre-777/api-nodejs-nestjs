@@ -1,7 +1,11 @@
 import { NestFactory } from '@nestjs/core';
+import Config from './config/app';
 import { AppModule } from './app.module';
 import { NestApplicationOptions } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 async function bootstrap() {
   const nestApplicationOptions: NestApplicationOptions = {
@@ -29,6 +33,6 @@ async function bootstrap() {
   SwaggerModule.setup('api-docs', app, document);
 
 
-  await app.listen(AppModule.port);
+  await app.listen(Config.port);
 }
 bootstrap();
