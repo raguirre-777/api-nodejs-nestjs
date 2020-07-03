@@ -33,10 +33,3 @@ export const databaseProviders = [
         },
     }),
 ];
-
-// import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
-// import Config from '../config/app';
-// TypeOrmModule.forRootAsync({
-//     ...Config.database,
-//     name: 'PG_DB',
-// } as TypeOrmModuleOptions),
