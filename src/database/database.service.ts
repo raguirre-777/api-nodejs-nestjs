@@ -12,16 +12,7 @@ export const databaseProviders = [
         inject: [ConfigService],
         async useFactory(config: ConfigService) {
             return {
-                connectString: 'postgresql://postgres:tbojodcnnbekks:15e204b56bcc9e4e60b7e97e4c3080455b35f71dd922961a4caeff00196cd35d@ec2-35-153-12-59.compute-1.amazonaws.com:5432/d2d4d7kcvkfvsc',
-                // connectString: `${process.env.DB_HOST}:${process.env.PORT}/${
-                //     process.env.DATA_BASE
-                //     }`,
-                // ssl: {
-                //     rejectUnauthorized: false
-                // },
-                dialect: "postgres",
-                operatorsAliases: false,
-                type: 'postgres' as 'postgres',
+                connectString: 'postgresql://postgres:tbojodcnnbekks:15e204b56bcc9e4e60b7e97e4c3080455b35f71dd922961a4caeff00196cd35d@ec2-35-153-12-59.compute-1.amazonaws.com:5432/d2d4d7kcvkfvsc', type: 'postgres',
                 host: config.get(process.env.DB_HOST),
                 username: config.get(process.env.DB_USERNAME),
                 port: 5432,
