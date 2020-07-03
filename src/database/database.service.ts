@@ -13,11 +13,14 @@ export const databaseProviders = [
         async useFactory(config: ConfigService) {
             return {
                 connectString: 'postgresql://postgres:tbojodcnnbekks:15e204b56bcc9e4e60b7e97e4c3080455b35f71dd922961a4caeff00196cd35d@ec2-35-153-12-59.compute-1.amazonaws.com:5432/d2d4d7kcvkfvsc', type: 'postgres',
-                host: config.get(process.env.DB_HOST),
-                username: config.get(process.env.DB_USERNAME),
+                ssl: {
+                    rejectUnauthorized: false
+                },
+                host: process.env.DB_HOST,
+                username: process.env.DB_USERNAME,
                 port: 5432,
-                database: config.get(process.env.DB_NAME),
-                password: config.get(process.env.DB_PASSWORD),
+                database: process.env.DB_NAME,
+                password: process.env.DB_PASSWORD,
                 entities: [__dirname + '/../**/*.entity{.ts,.js}'],
                 migrations: [__dirname + '/migrations/*{.ts,.js}'],
             } as ConnectionOptions;
