@@ -10,10 +10,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '../../config/config.module';
 import { Configuration } from '../../config/config.keys';
 
-import * as dotenv from 'dotenv';
-dotenv.config();
+require("dotenv").config();
 
-const a: string = process.env.JWT_SECRET || Configuration.JWT_SECRET;
 
 @Module({
   imports: [
