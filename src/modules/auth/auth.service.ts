@@ -28,7 +28,7 @@ export class AuthService {
         });
 
         if (userExists) {
-            throw new ConflictException('username or email already exists');
+            throw new ConflictException('username o email existe');
         }
 
         return this._authRepository.signup(signupDto);
@@ -42,13 +42,13 @@ export class AuthService {
         });
 
         if (!user) {
-            throw new NotFoundException('user does not exist');
+            throw new NotFoundException('usuario no existe');
         }
 
         const isMatch = await compare(password, user.password);
 
         if (!isMatch) {
-            throw new UnauthorizedException('invalid credentials');
+            throw new UnauthorizedException('credentiales invalidas');
         }
 
         const payload: IJwtPayload = {
