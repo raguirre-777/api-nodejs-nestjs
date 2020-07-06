@@ -6,9 +6,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { IJwtPayload } from '../jwt-payload.interface';
 import { UnauthorizedException, Injectable } from '@nestjs/common';
 import { Configuration } from 'src/config/config.keys';
-require("dotenv").config();
+import * as dotenv from 'dotenv';
+dotenv.config();
 
-
+const a: string = process.env.JWT_SECRET || Configuration.JWT_SECRET;
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
