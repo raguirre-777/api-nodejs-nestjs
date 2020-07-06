@@ -26,7 +26,7 @@ const a: string = process.env.JWT_SECRET || Configuration.JWT_SECRET;
       inject: [ConfigService],
       useFactory(config: ConfigService) {
         return {
-          secret: config.get(Configuration.JWT_SECRET || process.env.JWT_SECRET || 'jkdbakldfjasfdfifndi'),
+          secret: config.get(Configuration.JWT_SECRET || process.env.JWT_SECRET || 'JWT_SECRET'),
           signOptions: {
             expiresIn: 3600,
           },
