@@ -22,5 +22,10 @@ export default {
     // migrationsRun: true,
     synchronize: false,
     logging: false,
-  }
+  },
+  Jwt: {
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+    ignoreExpiration: true,
+    secretOrKey: process.env.JWT_SECRET,
+  },
 };
