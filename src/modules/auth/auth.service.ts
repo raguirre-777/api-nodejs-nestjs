@@ -58,9 +58,13 @@ export class AuthService {
             roles: user.roles.map(r => r.name as RoleType),
         };
 
-        console.log(payload);
-
         const token = await this._jwtService.sign(payload);
+
+        console.log(token);
+
+        if (!token) {
+            throw new UnauthorizedException('no se logra generar token');
+        }
 
         return { token };
     }
