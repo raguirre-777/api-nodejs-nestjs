@@ -19,18 +19,21 @@ require("dotenv").config();
     PassportModule.register({
       defaultStrategy: 'jwt',
     }),
-    JwtModule.registerAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory(config: ConfigService) {
-        return {
-          secret: config.get(Configuration.JWT_SECRET || process.env.JWT_SECRET || 'JWT_SECRET'),
-          signOptions: {
-            expiresIn: 3600,
-          },
-        };
-      },
+    JwtModule.register({
+      secret: process.env.JWT_SECRET || 'JWT_SECRET',
     }),
+    // JwtModule.registerAsync({
+    //   imports: [ConfigModule],
+    //   inject: [ConfigService],
+    //   useFactory(config: ConfigService) {
+    //     return {
+    //       secret: config.get(Configuration.JWT_SECRET || process.env.JWT_SECRET || 'JWT_SECRET'),
+    //       signOptions: {
+    //         expiresIn: 3600,
+    //       },
+    //     };
+    //   },
+    // }),
   ],
   controllers: [AuthController],
   providers: [AuthService, ConfigService, JwtStrategy],

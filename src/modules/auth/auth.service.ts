@@ -60,6 +60,8 @@ export class AuthService {
 
         const token = await this._jwtService.sign(payload);
 
+
+
         console.log(token);
 
         if (!token) {
