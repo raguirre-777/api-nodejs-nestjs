@@ -58,6 +58,8 @@ export class AuthService {
             roles: user.roles.map(r => r.name as RoleType),
         };
 
+        console.log(payload);
+
         const token = await this._jwtService.sign(payload);
 
         return { token };
