@@ -4,10 +4,11 @@ import { HoraRepository } from './hora.repository';
 import { HoraService } from './hora.service';
 import { HoraController } from './hora.controller';
 import { AuthModule } from '../auth/auth.module';
+import { UserRepository } from '../user/user.repository';
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([HoraRepository]),
+        TypeOrmModule.forFeature([HoraRepository, UserRepository]),
         AuthModule,
     ],
     providers: [HoraService],

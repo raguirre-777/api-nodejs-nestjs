@@ -28,6 +28,12 @@ export class HoraController {
     const Hora = await this._horaService.get(id);
     return Hora;
   }
+
+  @Get('userId/:userId')
+  async getHoraUser(@Param('userId', ParseIntPipe) id: number): Promise<HoraDto[]> {
+    const Hora = await this._horaService.getHoraUser(id);
+    return Hora;
+  }
   @Get()
   async getHoras(): Promise<HoraDto[]> {
     const horas = await this._horaService.getAll();
